@@ -24,6 +24,10 @@ background("blue");
    Runner = createSprite(200,545,20,20);
    Runner.addImage(RunnerImg);
    Runner.scale = 0.05 ; 
+   leftBoundary =  createSprite(10,300,10,600);
+   rughtBoundary =  createSprite(390,300,10,600);
+   leftBoundary.visible = false;
+    rightBoundary.visible = false;
 }
 
 
@@ -45,10 +49,12 @@ function draw() {
 if(keyDown(LEFT_ARROW)){
   Runner.x = Runner.x - 5 ;
 }
-
+Runner.x = mouseX;
 
 if(keyDown(RIGHT_ARROW)){
   Runner.x = Runner.x + 5 ;
-}  
+} 
+Runner.collide(leftBoundary);
+Runner.collide(rightBoundary);
 }
 
